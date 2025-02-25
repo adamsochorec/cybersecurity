@@ -31,18 +31,12 @@
   --dimension-1: 71vh;
   --dimension-2: 200px;
 }
-@font-face {
-  font-family: 'SF Pro Display';
-  src: url(/fonts/SF-Pro-Display-Light.ttf) format('truetype');
-  font-style: normal;
-  font-weight: 350;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Raleway Semibold;
-  src: url(/fonts/Raleway-SemiBold.ttf) format('truetype');
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  color-scheme: light dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
