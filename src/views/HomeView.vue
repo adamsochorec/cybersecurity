@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { usePasswordGenerator } from '@/functions/password-generator'
-import simswap from '@/components/simswap.vue'
 import { reveal } from '@/functions/reveal'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
