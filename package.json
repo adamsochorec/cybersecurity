@@ -16,7 +16,6 @@
     "@lottiefiles/dotlottie-vue": "^0.5.6",
     "@lottiefiles/vue-lottie-player": "^1.1.0",
     "@primeuix/themes": "^1.0.0",
-    "@primevue/auto-import-resolver": "^4.3.1",
     "@zxcvbn-ts/core": "^3.0.4",
     "@zxcvbn-ts/language-common": "^3.0.4",
     "@zxcvbn-ts/language-en": "^3.0.2",
@@ -31,6 +30,7 @@
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
+    "@primevue/auto-import-resolver": "^4.3.1",
     "@tsconfig/node22": "^22.0.0",
     "@types/node": "^22.13.4",
     "@vitejs/plugin-vue": "^5.2.1",
@@ -43,6 +43,7 @@
     "npm-run-all2": "^7.0.2",
     "prettier": "^3.5.1",
     "typescript": "~5.7.3",
+    "unplugin-vue-components": "^28.4.1",
     "vite": "^6.1.0",
     "vite-plugin-vue-devtools": "^7.7.2",
     "vue-tsc": "^2.2.2"

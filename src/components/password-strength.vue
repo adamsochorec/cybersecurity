@@ -1,14 +1,8 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { zxcvbn, debounce } from '@zxcvbn-ts/core'
-import InputText from 'primevue/inputtext'
-import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
-import Row from 'primevue/row'
-import Button from 'primevue/button'
-import InputGroup from 'primevue/inputgroup'
 import type { ZXCVBNResult } from '@zxcvbn-ts/core'
-import ScrollTop from 'primevue/scrolltop'
 
 const password = ref('')
 const result = ref<ZXCVBNResult | null>(null)
@@ -21,6 +15,7 @@ const useZxcvbn = async () => {
   }
 }
 
+// SCORE BAR STYLING
 const updateScoreBar = () => {
   const scoreBarInput = document.getElementById('score-bar')
   if (scoreBarInput) {

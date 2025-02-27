@@ -1,12 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import { reveal } from '@/functions/reveal'
-import Button from 'primevue/button'
-import Tag from 'primevue/tag'
 import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
 import PasswordStrength from '@/components/password-strength.vue'
 import PasswordGenerator from '@/components/password-generator.vue'
-import ScrollTop from 'primevue/scrolltop'
 
 onMounted(() => {
   // Observer for reveal animations

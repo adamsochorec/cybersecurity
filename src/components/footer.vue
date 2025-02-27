@@ -12,11 +12,7 @@
   >
     <span style="font-size: var(--font-size-7)"
       >Coded with ❤︎ by
-      <a
-        style="color: #0078a8"
-        target="_blank"
-        rel="noopener noreferrer nofollow"
-        href="https://github.com/adamsochorec"
+      <a target="_blank" rel="noopener noreferrer nofollow" href="https://github.com/adamsochorec"
         >Adam S.</a
       >
     </span>

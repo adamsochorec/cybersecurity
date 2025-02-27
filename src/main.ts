@@ -1,11 +1,13 @@
 import { createApp } from 'vue'
 import './assets/style.css'
 import App from './App.vue'
+import router from './router'
+
+// PrimeVue
 import PrimeVue from 'primevue/config'
 import PrimeVueTheme from '@primeuix/themes/aura'
 import { definePreset } from '@primeuix/themes'
 import 'primeicons/primeicons.css'
-import router from './router'
 import Tooltip from 'primevue/tooltip'
 
 const app = createApp(App)
