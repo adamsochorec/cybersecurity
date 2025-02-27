@@ -63,7 +63,7 @@ watch(result, () => {
 </script>
 
 <template>
-  <InputGroup>
+  <InputGroup class="reveal">
     <InputText id="score-bar" v-model="password" type="text" placeholder="Analyse your password" />
     <Button
       icon="pi pi-lock"
@@ -72,7 +72,7 @@ watch(result, () => {
     ></Button>
   </InputGroup>
 
-  <span class="note" style="text-align: center"
+  <span class="note reveal" style="text-align: center"
     >Password strength estimation by
     <a href="https://zxcvbn-ts.github.io/zxcvbn/" target="_blank" rel="noopener noreferrer nofollow"
       >zxcvbn-ts</a
