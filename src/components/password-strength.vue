@@ -74,7 +74,9 @@ watch(result, () => {
 
   <span class="note" style="text-align: center"
     >Password strength estimation by
-    <a href="" target="_blank" rel="noopener noreferrer nofollow">zxcvbn-ts</a>.</span
+    <a href="https://zxcvbn-ts.github.io/zxcvbn/" target="_blank" rel="noopener noreferrer nofollow"
+      >zxcvbn-ts</a
+    >.</span
   >
   <hr class="semi" />
   <div v-if="result">
