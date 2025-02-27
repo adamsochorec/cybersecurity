@@ -21,35 +21,45 @@
 
 /* GRADIENT START */
 .gradient {
-  -webkit-animation: gradient 7s ease infinite;
-  animation: gradient 7s ease infinite;
-  background: -o-linear-gradient(135deg, var(--p-indigo-900), var(--p-rose-900));
-  background: linear-gradient(-45deg, var(--p-indigo-900), var(--p-rose-900));
-  background-size: 4000% 4000%;
-  -webkit-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-animation: gradient 7s ease infinite; /* Apply the gradient animation */
+  animation: gradient 7s ease infinite; /* Apply the gradient animation */
+  background: -o-linear-gradient(
+    135deg,
+    var(--p-indigo-900),
+    var(--p-rose-900)
+  ); /* Fallback for older browsers */
+  background: linear-gradient(
+    -45deg,
+    var(--p-indigo-900),
+    var(--p-rose-900)
+  ); /* Define the gradient */
+  background-size: 400% 400%; /* Increase the background size to create the animation effect */
+  -webkit-transition: all 0.5s ease; /* Smooth transition for other properties */
+  -o-transition: all 0.5s ease; /* Smooth transition for other properties */
+  transition: all 0.5s ease; /* Smooth transition for other properties */
 }
+
 @-webkit-keyframes gradient {
   0% {
-    background-position: 0 50%;
+    background-position: 0% 50%; /* Start position */
   }
   50% {
-    background-position: 100% 50%;
+    background-position: 100% 50%; /* Midway position */
   }
   100% {
-    background-position: 0 50%;
+    background-position: 0% 50%; /* End position */
   }
 }
+
 @keyframes gradient {
   0% {
-    background-position: 0 50%;
+    background-position: 0% 50%; /* Start position */
   }
   50% {
-    background-position: 100% 50%;
+    background-position: 100% 50%; /* Midway position */
   }
   100% {
-    background-position: 0 50%;
+    background-position: 0% 50%; /* End position */
   }
 }
 /* GRADIENT END */

@@ -1,6 +1,5 @@
 <template>
   <hr class="semi" />
-
   <div
     style="
       background-color: black;

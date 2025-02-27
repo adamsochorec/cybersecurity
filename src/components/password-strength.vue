@@ -4,55 +4,59 @@ import { zxcvbn, debounce } from '@zxcvbn-ts/core'
 import Column from 'primevue/column'
 import type { ZXCVBNResult } from '@zxcvbn-ts/core'
 
-const password = ref('')
-const result = ref<ZXCVBNResult | null>(null)
+const password = ref('') // Reactive reference to store the password input
+const result = ref<ZXCVBNResult | null>(null) // Reactive reference to store the zxcvbn analysis result
 
+// Function to analyze the password using zxcvbn
 const useZxcvbn = async () => {
   if (password.value) {
-    result.value = await zxcvbn(password.value)
+    result.value = await zxcvbn(password.value) // Analyze the password and store the result
   } else {
-    result.value = null
+    result.value = null // Reset the result if the password is empty
   }
 }
 
-// SCORE BAR STYLING
+// Function to update the score bar styling based on the password strength
 const updateScoreBar = () => {
-  const scoreBarInput = document.getElementById('score-bar')
+  const scoreBarInput = document.getElementById('score-bar') // Get the score bar element
   if (scoreBarInput) {
     if (!password.value) {
-      scoreBarInput.style.boxShadow = 'none'
+      scoreBarInput.style.boxShadow = 'none' // Remove styling if the password is empty
       return
     }
     if (result.value) {
       switch (result.value.score) {
         case 0:
         case 1:
-          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(255, 46, 46, 0.9)'
+          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(255, 46, 46, 0.9)' // Weak password
           break
         case 2:
-          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(255, 154, 46, 0.9)'
+          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(255, 154, 46, 0.9)' // Fair password
           break
         case 3:
-          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(224, 255, 46, 0.9)'
+          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(224, 255, 46, 0.9)' // Good password
           break
         case 4:
-          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(0, 255, 60, 0.9)'
+          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(0, 255, 60, 0.9)' // Strong password
           break
         default:
-          scoreBarInput.style.boxShadow = 'none'
+          scoreBarInput.style.boxShadow = 'none' // Default styling
       }
     } else {
-      scoreBarInput.style.boxShadow = 'none'
+      scoreBarInput.style.boxShadow = 'none' // Remove styling if no result
     }
   }
 }
 
+// Debounced version of the useZxcvbn function to limit the frequency of analysis
 const debouncedUseZxcvbn = debounce(useZxcvbn, 200)
 
+// Watcher to trigger password analysis when the password changes
 watch(password, () => {
   debouncedUseZxcvbn()
 })
 
+// Watcher to update the score bar styling when the analysis result changes
 watch(result, () => {
   updateScoreBar()
 })

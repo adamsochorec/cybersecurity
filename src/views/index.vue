@@ -58,6 +58,7 @@ onMounted(() => {
       overflow: hidden;
     "
   >
+    <!--  INTRO SECTION START -->
     <section class="intro-section-wrapper" style="width: 100%">
       <article
         class="intro-section gradient"
@@ -106,7 +107,9 @@ onMounted(() => {
         </div>
       </article>
     </section>
-    <article id="scrolllink" class="wrapper-wide" style="max-width: 100%; width: 947px">
+    <!--  INTRO SECTION END -->
+    <!-- ARTICLE START -->
+    <article class="wrapper-wide" style="max-width: 100%; width: 947px">
       <hr class="semi" />
       <Tag value="2023" rounded icon="pi pi-calendar" class="metadata" />
       <Tag value="2025" rounded icon="pi pi-refresh" class="metadata" />
@@ -139,6 +142,7 @@ onMounted(() => {
         them in Excel spreadsheets on your work laptop...
       </p>
       <hr class="reveal" />
+      <!--  PASSWORD STRENGTH START -->
       <h4 class="reveal">1.2 Password Strength</h4>
       <p class="reveal">
         Contemporary password hacking is more about social engineering and working with the most
@@ -193,7 +197,9 @@ onMounted(() => {
           >
         </li>
       </ol>
+      <!--  PASSWORD STRENGTH END -->
       <hr class="reveal" />
+      <!--  LOTTIE ANIMATION START -->
       <section class="lottie-container">
         <div>
           <h3 class="reveal">2.What Is 2FA and Why Is It Essential.</h3>
@@ -223,6 +229,7 @@ onMounted(() => {
           src="https://lottie.host/658490af-b8e2-42bf-bba8-91ef507b5d23/Gn3kFKahhC.lottie"
         />
       </section>
+      <!--  LOTTIE ANIMATION END -->
       <hr class="reveal" />
       <h4 class="reveal">2.2 What Is SIM Swapping</h4>
       <br />
@@ -307,7 +314,9 @@ onMounted(() => {
         <li>Stick to the random non-organic passwords</li>
         <li>Educate yourself about social engineering</li>
       </ol>
+      <!-- ARTICLE END -->
 
+      <!-- RELATED LITERATURE START -->
       <hr class="reveal" />
       <h3 class="reveal">4. Related Literature</h3>
       <ol>
@@ -343,7 +352,6 @@ onMounted(() => {
             >Password Entropy Calculator &#8250;</a
           >
         </li>
-
         <li class="reveal">
           <a
             target="_blank"
@@ -353,7 +361,7 @@ onMounted(() => {
           >
         </li>
       </ol>
-
+      <!-- RELATED LITERATURE END -->
       <ScrollTop />
     </article>
   </main>
