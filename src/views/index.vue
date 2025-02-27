@@ -1,17 +1,12 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { usePasswordGenerator } from '@/functions/password-generator'
 import { reveal } from '@/functions/reveal'
 import Button from 'primevue/button'
-import InputText from 'primevue/inputtext'
 import Tag from 'primevue/tag'
-import InputGroup from 'primevue/inputgroup'
 import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
 import PasswordStrength from '@/components/password-strength.vue'
-
-const { password, generatePassword, copyToClipboard } = usePasswordGenerator()
-generatePassword()
-copyToClipboard()
+import PasswordGenerator from '@/components/password-generator.vue'
+import ScrollTop from 'primevue/scrolltop'
 
 onMounted(() => {
   // Observer for reveal animations
@@ -79,10 +74,10 @@ onMounted(() => {
           display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
+          height: 100vh;
           -webkit-box-pack: center;
           -ms-flex-pack: center;
           justify-content: center;
-          height: 100vh;
         "
       >
         <section
@@ -107,50 +102,11 @@ onMounted(() => {
             class="cta"
           ></Button>
           <p style="font-size: var(--font-size-3)">Get an ultimate password</p>
-
-          <div class="button-wrapper" style="display: flex; width: 100%">
-            <InputGroup>
-              <InputText
-                style="text-align: center"
-                type="text"
-                placeholder="of 124-bit strength"
-                v-model="password"
-                readonly
-              />
-              <Button
-                icon="pi pi-clipboard"
-                severity="contrast"
-                outlined
-                @click="
-                  () => {
-                    copyToClipboard()
-                    showTooltip()
-                  }
-                "
-                v-tooltip.click.right.manual="'Copy'"
-                ref="tooltipRef"
-              ></Button>
-            </InputGroup>
-          </div>
-          <Button
-            icon="pi pi-sparkles"
-            style="margin-top: var(--grid-gap-2)"
-            label="Generate"
-            severity="success"
-            @click="generatePassword"
-          ></Button>
-
-          <Button
-            as="a"
-            variant="text"
-            iconPos="bottom"
-            icon="pi pi-arrow-down"
-            label="Scroll to learn more"
-            href="#scrolllink"
-            style="position: absolute; bottom: var(--grid-gap-2); text-align: center"
-          >
-          </Button>
+          <PasswordGenerator></PasswordGenerator>
         </section>
+        <div style="position: absolute; bottom: var(--grid-gap-2); text-align: center">
+          <i class="pi pi-chevron-down scroll"> </i>
+        </div>
       </article>
     </section>
     <article id="scrolllink" class="wrapper-wide" style="max-width: 100%; width: 947px">
@@ -267,7 +223,7 @@ onMounted(() => {
           autoplay
           aria-label="Page not found animation."
           style="height: 100%; width: 100%"
-          src="https://lottie.host/89d5cfd4-b1c4-41b2-99f8-31c92e6e9952/T1T7rMqDZK.lottie"
+          src="https://lottie.host/658490af-b8e2-42bf-bba8-91ef507b5d23/Gn3kFKahhC.lottie"
         />
       </section>
       <hr class="reveal" />
@@ -282,8 +238,8 @@ onMounted(() => {
         class="note reveal"
         target="_blank"
         rel="noopener noreferrer"
-        href="https://www.aon.com/cyber-solutions/aon_cyber_labs/a-simple-attack-a-look-into-recent-sim-swap-attack-trends/"
-        >www.aon.com</a
+        href="https://opengateway.telefonica.com/en/news/article/api-sim-swap"
+        >www.telefonica.com</a
       >
 
       <p class="reveal">
@@ -400,6 +356,8 @@ onMounted(() => {
           >
         </li>
       </ol>
+
+      <ScrollTop />
     </article>
   </main>
 </template>
@@ -407,13 +365,24 @@ onMounted(() => {
 .metadata {
   margin-right: var(--grid-gap-2);
 }
+.scroll {
+  animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
 @media only screen and (max-width: 620px) {
   .lottie {
     height: 30%;
     width: auto;
   }
 }
-
 @media only screen and (min-width: 620px) {
   .lottie-container {
     display: grid;

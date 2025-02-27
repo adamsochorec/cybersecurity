@@ -8,6 +8,7 @@ import Row from 'primevue/row'
 import Button from 'primevue/button'
 import InputGroup from 'primevue/inputgroup'
 import type { ZXCVBNResult } from '@zxcvbn-ts/core'
+import ScrollTop from 'primevue/scrolltop'
 
 const password = ref('')
 const result = ref<ZXCVBNResult | null>(null)
