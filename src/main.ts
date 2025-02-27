@@ -6,8 +6,10 @@ import PrimeVueTheme from '@primeuix/themes/aura'
 import { definePreset } from '@primeuix/themes'
 import 'primeicons/primeicons.css'
 import router from './router'
+import Tooltip from 'primevue/tooltip'
 
 const app = createApp(App)
+app.directive('tooltip', Tooltip)
 
 const slavicmedia = definePreset(PrimeVueTheme, {
   semantic: {

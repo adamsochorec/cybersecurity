@@ -188,10 +188,7 @@ main li {
 .highlited {
   color: rgba(var(--primary-color), 1);
 }
-main ul,
-main ol {
-  margin-left: var(--grid-gap-3);
-}
+
 .visually-hidden {
   z-index: -9999999;
   font-size: 0.1px !important;
@@ -267,7 +264,8 @@ img {
     --homepage-padding: var(--grid-gap-2);
     --menu-padding: 0 var(--homepage-padding);
   }
-  .wrapper-wide {
+  .wrapper-wide,
+  .intro-section {
     padding-left: var(--homepage-padding);
     padding-right: var(--homepage-padding);
   }

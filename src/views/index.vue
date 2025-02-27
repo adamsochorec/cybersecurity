@@ -4,12 +4,12 @@ import { usePasswordGenerator } from '@/functions/password-generator'
 import { reveal } from '@/functions/reveal'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
-import Chip from 'primevue/chip'
-import Tooltip from 'primevue/tooltip'
+import Tag from 'primevue/tag'
+import InputGroup from 'primevue/inputgroup'
 import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
+import PasswordStrength from '@/components/password-strength.vue'
 
 const { password, generatePassword, copyToClipboard } = usePasswordGenerator()
-
 generatePassword()
 copyToClipboard()
 
@@ -106,22 +106,37 @@ onMounted(() => {
             rel="noopener noreferrer nofollow"
             class="cta"
           ></Button>
-          <p style="font-size: var(--font-size-1)">Get an ultimate password</p>
-          <div>
-            <InputText
-              style="text-align: center"
-              type="text"
-              placeholder="of 124-bit strength"
-              v-model="password"
-              readonly
-              v-tooltip.click.top="'Enter your username'"
-            />
-            <Button icon="pi pi-clipboard" @click="copyToClipboard"></Button>
+          <p style="font-size: var(--font-size-3)">Get an ultimate password</p>
+
+          <div class="button-wrapper" style="display: flex; width: 100%">
+            <InputGroup>
+              <InputText
+                style="text-align: center"
+                type="text"
+                placeholder="of 124-bit strength"
+                v-model="password"
+                readonly
+              />
+              <Button
+                icon="pi pi-clipboard"
+                severity="contrast"
+                outlined
+                @click="
+                  () => {
+                    copyToClipboard()
+                    showTooltip()
+                  }
+                "
+                v-tooltip.click.right.manual="'Copy'"
+                ref="tooltipRef"
+              ></Button>
+            </InputGroup>
           </div>
           <Button
             icon="pi pi-sparkles"
             style="margin-top: var(--grid-gap-2)"
             label="Generate"
+            severity="success"
             @click="generatePassword"
           ></Button>
 
@@ -140,9 +155,9 @@ onMounted(() => {
     </section>
     <article id="scrolllink" class="wrapper-wide" style="max-width: 100%; width: 947px">
       <hr class="semi" />
-      <Chip label="2023" icon="pi pi-calendar" class="metadata" />
-      <Chip label="2025" icon="pi pi-refresh" class="metadata" />
-      <Chip label="10min" icon="pi pi-book" class="metadata" />
+      <Tag value="2023" rounded icon="pi pi-calendar" class="metadata" />
+      <Tag value="2025" rounded icon="pi pi-refresh" class="metadata" />
+      <Tag value="10min" rounded icon="pi pi-book" class="metadata" />
       <h1 class="reveal" style="margin: var(--grid-gap-2) 0">Cybersecurity Hygiene</h1>
       <h2 class="reveal" style="font-size: var(--font-size-4)">
         Essential Steps Leading to Your Secure and Healthy Online Presence.
@@ -159,6 +174,7 @@ onMounted(() => {
         drastically reduce the risk of having your birthday on Facebook or tag the location of your
         hometown in an Instagram post.
       </p>
+      <hr class="semi" />
       <p class="reveal">
         Another step forward to secure your online and offline identity is using a unique password
         for each account you own. That creates a powerful cascade of barriers that possible hackers
@@ -171,34 +187,12 @@ onMounted(() => {
       </p>
       <hr class="reveal" />
       <h4 class="reveal">1.2 Password Strength</h4>
-      <div style="margin-top: var(--grid-gap-2)">
-        <form
-          class="reveal"
-          id="password-strength-form"
-          action=""
-          method="get"
-          accept-charset="utf-8"
-          spellcheck="false"
-          autocomplete="off"
-        >
-          <InputText
-            style="width: 100%"
-            id="myPassword"
-            type="password"
-            value=""
-            autocomplete="off"
-          />
-        </form>
-
-        <span class="note">
-          This tool is safe to interact with. Everything is processed locally - no data are sent or
-          stored.</span
-        >
-      </div>
       <p class="reveal">
         Contemporary password hacking is more about social engineering and working with the most
         commonly used words/phrases in dictionaries, than processing-heavy combinatorics.
       </p>
+      <hr class="semi" />
+      <PasswordStrength></PasswordStrength>
       <hr class="reveal" />
       <h4 class="reveal">1.3 Problem Solution <i class="pi pi-spin pi-cog"></i></h4>
       <ol class="reveal">
@@ -247,7 +241,7 @@ onMounted(() => {
         </li>
       </ol>
       <hr class="reveal" />
-      <section style="display: grid; grid-template-columns: 2fr 1fr">
+      <section class="lottie-container">
         <div>
           <h3 class="reveal">2.What Is 2FA and Why Is It Essential.</h3>
           <p class="reveal">
@@ -266,14 +260,15 @@ onMounted(() => {
             you will receive new ones).
           </p>
         </div>
-        <div>
-          <DotLottieVue
-            style="height: auto; width: 100%"
-            autoplay
-            loop
-            src="https://lottie.host/3fa90dba-733a-464e-a3e8-1ff187b5e00e/7AKH7ObXAM.lottie"
-          />
-        </div>
+        <DotLottieVue
+          class="reveal lottie"
+          background="transparent"
+          loop
+          autoplay
+          aria-label="Page not found animation."
+          style="height: 100%; width: 100%"
+          src="https://lottie.host/89d5cfd4-b1c4-41b2-99f8-31c92e6e9952/T1T7rMqDZK.lottie"
+        />
       </section>
       <hr class="reveal" />
       <h4 class="reveal">2.2 What Is SIM Swapping</h4>
@@ -298,38 +293,33 @@ onMounted(() => {
       </p>
       <hr class="reveal" />
       <h4 class="reveal">2.3 Problem Solution <i class="pi pi-spin pi-cog"></i></h4>
-      <ol class="reveal">
-        <li>Set up a 2FA for your online accounts with 2FA support through:</li>
-        <ul>
-          <li>
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.apple.com/legal/privacy/data/en/icloud-keychain/"
-              ><i class="pi pi-apple"></i> Passwords</a
-            >
-          </li>
-          <li>
-            Trusted third-party 2FA apps such as
-            <a target="_blank" rel="noopener noreferrer" href="https://authy.com/">Authy</a>,
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.lastpass.com/how-lastpass-works"
-              >LastPass</a
-            >
-            or
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://www.keepersecurity.com/en_GB/"
-              >Keeper</a
-            >
-          </li>
-          <li>Service's verification native app (f.e. Adobe - Account Access)</li>
-          <li>If the service does support any mentioned methods, use the SMS verification</li>
-        </ul>
-      </ol>
+      <p class="reveal">Set up a 2FA for your online accounts with 2FA support through:</p>
+      <ul>
+        <li>
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.apple.com/legal/privacy/data/en/icloud-keychain/"
+            ><i class="pi pi-apple"></i> Passwords</a
+          >
+        </li>
+        <li>
+          Trusted third-party 2FA apps such as
+          <a target="_blank" rel="noopener noreferrer" href="https://authy.com/">Authy</a>,
+          <a
+            target="_blank"
+            rel="noopener noreferrer"
+            href="https://www.lastpass.com/how-lastpass-works"
+            >LastPass</a
+          >
+          or
+          <a target="_blank" rel="noopener noreferrer" href="https://www.keepersecurity.com/en_GB/"
+            >Keeper</a
+          >
+        </li>
+        <li>Service's verification native app (f.e. Adobe - Account Access)</li>
+        <li>If the service does support any mentioned methods, use the SMS verification</li>
+      </ul>
       <hr class="reveal" />
       <h3 class="reveal">3. Social Engineering Vulnerability</h3>
       <p class="reveal">
@@ -416,5 +406,18 @@ onMounted(() => {
 <style scoped>
 .metadata {
   margin-right: var(--grid-gap-2);
+}
+@media only screen and (max-width: 620px) {
+  .lottie {
+    height: 30%;
+    width: auto;
+  }
+}
+
+@media only screen and (min-width: 620px) {
+  .lottie-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+  }
 }
 </style>
