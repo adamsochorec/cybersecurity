@@ -199,11 +199,12 @@ main li {
 a,
 a:hover {
   cursor: pointer !important;
-  text-decoration: none;
   color: var(--p-blue-500);
 }
-p a:hover,
-li a:hover {
+a {
+  text-decoration: none;
+}
+a:hover {
   text-decoration: underline;
 }
 

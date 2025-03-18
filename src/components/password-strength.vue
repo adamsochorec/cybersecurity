@@ -28,16 +28,16 @@ const updateScoreBar = () => {
       switch (result.value.score) {
         case 0:
         case 1:
-          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(255, 46, 46, 0.9)' // Weak password
+          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgb(255, 0, 0)' // Weak password
           break
         case 2:
-          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(255, 154, 46, 0.9)' // Fair password
+          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgb(255, 145, 0)' // Fair password
           break
         case 3:
-          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(224, 255, 46, 0.9)' // Good password
+          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(255, 247, 0)' // Good password
           break
         case 4:
-          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(0, 255, 60, 0.9)' // Strong password
+          scoreBarInput.style.boxShadow = '0px 0px 26px 0px rgba(0, 255, 60)' // Strong password
           break
         default:
           scoreBarInput.style.boxShadow = 'none' // Default styling
@@ -63,7 +63,7 @@ watch(result, () => {
 </script>
 
 <template>
-  <InputGroup class="reveal">
+  <InputGroup>
     <InputText id="score-bar" v-model="password" type="text" placeholder="Analyse your password" />
     <Button
       icon="pi pi-lock"
@@ -72,7 +72,7 @@ watch(result, () => {
     ></Button>
   </InputGroup>
 
-  <span class="note reveal" style="text-align: center"
+  <span class="note" style="text-align: center"
     >Password strength estimation by
     <a href="https://zxcvbn-ts.github.io/zxcvbn/" target="_blank" rel="noopener noreferrer nofollow"
       >zxcvbn-ts</a
@@ -86,16 +86,18 @@ watch(result, () => {
           <span>{{ slotProps.data.guesses }}</span>
           <Button
             variant="text"
-            v-tooltip.bottom="'Estimated guesses needed to crack password.'"
+            v-tooltip.bottom="
+              'How many times an attacker would likely need to guess before cracking your password'
+            "
             icon="pi pi-info-circle"
           /> </template
       ></Column>
-      <Column field="calcTime" header="Function runtime (ms):"
+      <Column field="calcTime" header="Function runtime"
         ><template #body="slotProps">
-          <span>{{ slotProps.data.calcTime }}</span>
+          <span>{{ slotProps.data.calcTime }}</span> milliseconds
           <Button
             variant="text"
-            v-tooltip.bottom="'How long it took zxcvbn to calculate an answer, in milliseconds.'"
+            v-tooltip.bottom="'The time this tool needed to analyze your password’s strength.'"
             icon="pi pi-info-circle"
           /> </template
       ></Column>
@@ -104,7 +106,9 @@ watch(result, () => {
           <span>{{ slotProps.data.guessesLog10 }}</span>
           <Button
             variant="text"
-            v-tooltip.bottom="'Order of magnitude of result.guesses'"
+            v-tooltip.bottom="
+              'A simplified way to express the number of guesses required, using powers of 10 (e.g., thousands, millions, billions, etc.).'
+            "
             icon="pi pi-info-circle"
           /> </template
       ></Column>
@@ -119,7 +123,9 @@ watch(result, () => {
           <span>{{ slotProps.data.onlineThrottling100PerHour }}</span>
           <Button
             variant="text"
-            v-tooltip.bottom="'Online attack on a service that ratelimits password auth attempts.'"
+            v-tooltip.bottom="
+              'How long it would take an attacker to break your password if the website allows only a few guesses per hour.'
+            "
             icon="pi pi-info-circle"
           />
         </template>
@@ -130,7 +136,7 @@ watch(result, () => {
           <Button
             variant="text"
             v-tooltip.bottom="
-              'Online attack on a service that does not ratelimit, or where an attacker has outsmarted ratelimiting.'
+              'How long it would take if the attacker could try multiple passwords quickly without restrictions.'
             "
             icon="pi pi-info-circle"
           />
@@ -142,7 +148,7 @@ watch(result, () => {
           <Button
             variant="text"
             v-tooltip.bottom="
-              'Offline attack. assumes multiple attackers, proper user-unique salting and a slow hash function with moderate work factor, such as bcrypt, scrypt, PBKDF2.'
+              'How long it would take to crack your password if stolen from a database that uses modern, secure encryption techniques.'
             "
             icon="pi pi-info-circle"
           />
@@ -154,7 +160,7 @@ watch(result, () => {
           <Button
             variant="text"
             v-tooltip.bottom="
-              'Offline attack with user-unique salting but a fast hash function like SHA-1, SHA-256 or MD5. A wide range of reasonable numbers anywhere from one billion - one trillion guesses per second, depending on number of cores and machines.'
+              'How long it would take if your password was stored using outdated security methods, allowing attackers to guess at extreme speeds.'
             "
             icon="pi pi-info-circle"
           />
