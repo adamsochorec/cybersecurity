@@ -208,6 +208,9 @@ a:hover {
   text-decoration: underline;
 }
 
+img {
+  width: 100%;
+}
 /* MEDIA QERRIES START */
 
 @media only screen and (max-width: 1020px) {
