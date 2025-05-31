@@ -1,3 +1,5 @@
+![Deployed](https://img.shields.io/badge/status-deployed-brightgreen)
+
 # Cybersecurity Hygiene
 
 ## Who?
