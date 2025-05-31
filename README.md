@@ -1,6 +1,5 @@
-![Deployed](https://img.shields.io/badge/status-deployed-brightgreen)
-
 # Cybersecurity Hygiene
+![Deployed](https://img.shields.io/badge/status-deployed-brightgreen)
 
 ## Who?
 Developed by [Adam Sochorec](https://www.linkedin.com/in/adamsochorec) with consultation from teachers at [IBA](https://www.iba.dk) as part of a cybersecurity-oriented project in July 2022.
