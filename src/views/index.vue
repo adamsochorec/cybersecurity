@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { reveal } from '@/functions/reveal'
+import { reveal } from '@/composables/reveal'
 import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
-import PasswordStrength from '@/components/password-strength.vue'
-import PasswordGenerator from '@/components/password-generator.vue'
+import PasswordStrength from '@/components/PasswordStrength.vue'
+import PasswordGenerator from '@/components/PasswordGenerator.vue'
 
 onMounted(() => {
   // Observer for reveal animations
