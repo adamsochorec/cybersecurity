@@ -5,7 +5,7 @@ import InputGroup from 'primevue/inputgroup'
 import Button from 'primevue/button'
 import InputText from 'primevue/inputtext'
 
-const password = ref('') // Reactive reference to store the generated password
+const password = ref('') // Reactive reference to store the generated password.
 const isPasswordGenerated = ref(false) // Reactive reference to track if the password has been generated
 
 // Function to generate a random password
