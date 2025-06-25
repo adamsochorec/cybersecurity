@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { reveal } from '@/composables/reveal'
+import { reveal } from '@/composables/useReveal'
 import { DotLottieVue } from '@lottiefiles/dotlottie-vue'
 import PasswordStrength from '@/components/PasswordStrength.vue'
 import PasswordGenerator from '@/components/PasswordGenerator.vue'
@@ -73,6 +73,7 @@ onMounted(() => {
           display: -ms-flexbox;
           display: flex;
           height: 100vh;
+          height: 100svh;
           -webkit-box-pack: center;
           -ms-flex-pack: center;
           justify-content: center;
@@ -98,9 +99,9 @@ onMounted(() => {
             target="_blank"
             rel="noopener noreferrer nofollow"
             class="cta"
-          ></Button>
+          />
           <p style="font-size: var(--font-size-3)">Get an ultimate password</p>
-          <PasswordGenerator></PasswordGenerator>
+          <PasswordGenerator />
         </section>
         <div style="position: absolute; bottom: var(--grid-gap-2); text-align: center">
           <i class="pi pi-chevron-down scroll"> </i>
@@ -149,7 +150,7 @@ onMounted(() => {
         commonly used words/phrases in dictionaries, than processing-heavy combinatorics.
       </p>
       <hr class="semi" />
-      <PasswordStrength></PasswordStrength>
+      <PasswordStrength />
       <hr class="reveal" />
       <h4 class="reveal">1.3 Problem Solution <i class="pi pi-spin pi-cog"></i></h4>
       <ol class="reveal">

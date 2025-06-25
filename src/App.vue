@@ -4,5 +4,5 @@ import Footer from '@/components/footer.vue'
 
 <template>
   <RouterView />
-  <Footer></Footer>
+  <Footer/>
 </template>
