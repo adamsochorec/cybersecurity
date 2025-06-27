@@ -235,7 +235,7 @@ onMounted(() => {
       <br />
       <img
         class="reveal"
-        src="../assets/simswap.png"
+        src="/simswap.webp"
         alt="SIM swapp explanation"
         style="border-radius: var(--border-radius-1)"
       />
