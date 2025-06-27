@@ -225,7 +225,6 @@ onMounted(() => {
           background="transparent"
           loop
           autoplay
-          aria-label="Page not found animation."
           style="height: 100%; width: 100%"
           src="https://lottie.host/658490af-b8e2-42bf-bba8-91ef507b5d23/Gn3kFKahhC.lottie"
         />
@@ -237,6 +236,7 @@ onMounted(() => {
       <img
         class="reveal"
         src="../assets/simswap.png"
+        alt="SIM swapp explanation"
         style="border-radius: var(--border-radius-1)"
       />
       <a
