@@ -16,7 +16,7 @@ Initially researched and written in July 2022. Refactored in February 2025 from 
 
 ## What?
 
-An interactive educational article designed to inform non-technical users about cybersecurity threats and how to mitigate them. The content remains introductory but includes practical solutions, interactive tools like a password generator and strength analyzer, and additional educational resources.
+An interactive educational article designed to inform non-technical users about cybersecurity threats and how to mitigate them. The content remains introductory but includes practical solutions, interactive tools like a password generator and strength analyser, and additional educational resources.
 
 ## How?
 
@@ -28,13 +28,4 @@ Originally built with static HTML, CSS, and JavaScript, later refactored into a 
 npm install # Install Node
 npm run dev # Compile and Hot-Reload for Development
 npm run build # Type-Check, Compile and Minify for Production
-```
-
-## Project Deployment
-
-```sh
-npm run build
-git add dist -f
-git commit -m "adding dist"
-git subtree push --prefix dist origin gh-pages
 ```
